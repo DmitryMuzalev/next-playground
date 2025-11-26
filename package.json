@@ -6,7 +6,26 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:scss": "stylelint \"**/*.{css,scss,sass}\"",
+    "lint:scss:fix": "stylelint \"**/*.{css,scss,sass}\" --fix",
+    "preview": "vite preview",
+    "prepare": "husky",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.{css,scss}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.{json,md,html}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "next": "16.0.4",
