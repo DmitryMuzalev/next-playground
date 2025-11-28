@@ -26,6 +26,33 @@
   --red-500: #ef4444;
   --green-500: #10b981;
   --yellow-500: #f59e0b;
+  --background: var(--white);
+  --foreground: var(--gray-50);
+  --text-primary: var(--gray-900);
+  --text-secondary: var(--gray-600);
+  --text-muted: var(--gray-500);
+  --border: var(--gray-200);
+  --border-hover: var(--gray-300);
+  --card-bg: var(--white);
+  --card-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+  --card-shadow-hover: 0 4px 20px rgb(0 0 0 / 15%);
+  --header-bg: var(--white);
+  --header-border: var(--gray-300);
+}
+
+[data-theme="dark"] {
+  --background: var(--gray-950);
+  --foreground: var(--gray-900);
+  --text-primary: var(--gray-50);
+  --text-secondary: var(--gray-300);
+  --text-muted: var(--gray-400);
+  --border: var(--gray-700);
+  --border-hover: var(--gray-600);
+  --card-bg: var(--gray-800);
+  --card-shadow: 0 2px 10px rgb(0 0 0 / 30%);
+  --card-shadow-hover: 0 4px 20px rgb(0 0 0 / 40%);
+  --header-bg: var(--gray-900);
+  --header-border: var(--gray-700);
 }
 
 html,
@@ -36,11 +63,14 @@ body {
 
 body {
   min-height: 100vh;
-  color: var(--black);
-  background: var(--white);
+  color: var(--text-primary);
+  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 * {

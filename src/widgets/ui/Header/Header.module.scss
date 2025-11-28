@@ -1,9 +1,13 @@
 .header {
-  border-bottom: 1px solid var(--gray-300);
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--header-border);
   box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
   position: sticky;
   top: 0;
   z-index: 100;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .container {
@@ -25,41 +29,28 @@
 }
 
 .navLink {
-  color: var(--gray-500);
+  color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 0;
   position: relative;
   transition: color 0.2s ease;
-}
 
-.navLink:hover {
-  color: var(--blue-500);
-}
-
-.navLink.active {
-  color: var(--blue-700);
-}
-
-.navLink.active::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: var(--blue-700);
-}
-
-@media (width <= 768px) {
-  .container {
-    flex-direction: column;
-    height: auto;
-    padding: 1rem;
+  &:hover {
+    color: var(--blue-500);
   }
 
-  .navList {
-    gap: 1rem;
-    margin-top: 1rem;
+  &.active {
+    color: var(--blue-600);
+  }
+
+  &.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--blue-600);
   }
 }

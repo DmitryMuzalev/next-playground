@@ -1,29 +1,23 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
-import s from './Header.module.scss';
 import { usePathname } from 'next/navigation';
-import Image from 'next/image';
+import React from 'react';
+import s from './Header.module.scss';
+import { ThemeSwitcher } from '@/widgets/ui';
 
 const Header: React.FC = () => {
   const pathname = usePathname();
 
   const navItems = [
-    { href: '/', label: 'Главная' },
-    { href: '/posts', label: 'Посты' },
-    { href: '/users', label: 'Пользователи' },
+    { href: '/', label: 'Home' },
+    { href: '/posts', label: 'Posts' },
+    { href: '/users', label: 'Users' },
   ];
 
   return (
     <header className={s.header}>
       <div className={s.container}>
-        <div className={s.logo}>
-          <Link href='/' className={s.logoLink}>
-            <Image src='/logo.svg' height={32} width={32} alt='Logo' />
-          </Link>
-        </div>
-
         <nav className={s.nav}>
           <ul className={s.navList}>
             {navItems.map(item => (
@@ -38,6 +32,7 @@ const Header: React.FC = () => {
             ))}
           </ul>
         </nav>
+        <ThemeSwitcher />
       </div>
     </header>
   );

@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import { Header } from '@/widgets/ui';
 import './globals.scss';
 import { Provider } from 'react-redux';
