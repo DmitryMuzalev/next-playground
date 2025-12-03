@@ -1,4 +1,7 @@
 'use client';
+
+import { RickAndMortyPage } from '@/features/rickandmorty/ui';
+
 export default function RickAndMorty() {
-  return <h2>Rick And Morty</h2>;
+  return <RickAndMortyPage />;
 }
