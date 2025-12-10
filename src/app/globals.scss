@@ -62,7 +62,8 @@ body {
 }
 
 body {
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
+  margin-top: 64px;
   color: var(--text-primary);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
@@ -88,4 +89,9 @@ a {
   max-width: 1400px;
   margin: 0 auto;
   padding: 2rem 1rem;
+}
+
+.content {
+  border: 1px solid red;
+  margin-left: 250px;
 }

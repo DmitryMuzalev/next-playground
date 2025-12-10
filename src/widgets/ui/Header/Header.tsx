@@ -14,6 +14,7 @@ const Header: React.FC = () => {
     { href: '/posts', label: 'Posts' },
     { href: '/users', label: 'Users' },
     { href: '/rickandmorty', label: 'Rick And Morty' },
+    { href: '/musicfun', label: 'Musicfun' },
   ];
 
   return (
