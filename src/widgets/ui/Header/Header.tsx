@@ -10,12 +10,19 @@ const Header: React.FC = () => {
   const pathname = usePathname();
 
   const navItems = [
-    { href: '/', label: 'Home' },
+    { href: '/', label: 'Home', exact: true },
     { href: '/posts', label: 'Posts' },
     { href: '/users', label: 'Users' },
     { href: '/rickandmorty', label: 'Rick And Morty' },
-    { href: '/musicfun', label: 'Musicfun' },
+    { href: '/musicfun', label: 'MusicFun' },
   ];
+
+  const isActive = (href: string, exact?: boolean) => {
+    if (exact) {
+      return pathname === href;
+    }
+    return pathname.startsWith(href) && href !== '/';
+  };
 
   return (
     <header className={s.header}>
@@ -26,7 +33,7 @@ const Header: React.FC = () => {
               <li key={item.href} className={s.navItem}>
                 <Link
                   href={item.href}
-                  className={`${s.navLink} ${pathname === item.href ? s.active : ''}`}
+                  className={`${s.navLink} ${isActive(item.href, item.exact) ? s.active : ''}`}
                 >
                   {item.label}
                 </Link>
