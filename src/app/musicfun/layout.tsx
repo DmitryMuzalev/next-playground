@@ -1,6 +1,6 @@
 'use client';
 
-import Sidebar from '@/widgets/ui/Sidebar/Sidebar';
+import { MusicFunSidebar } from '@/features/musicfun/ui';
 
 export default function RootLayout({
   children,
@@ -9,7 +9,7 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <Sidebar />
+      <MusicFunSidebar />
       <div className='content'>{children}</div>
     </>
   );

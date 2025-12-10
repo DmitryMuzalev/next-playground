@@ -1,27 +1,24 @@
 'use client';
 
-import Link from 'next/link';
+import s from './Sidebar.module.scss';
 import { usePathname } from 'next/navigation';
-import styles from './Sidebar.module.scss';
+import Link from 'next/link';
 
-const Sidebar = () => {
+type Props = {
+  menuItems: { label: string; path: string }[];
+};
+
+export const Sidebar = ({ menuItems }: Props) => {
   const pathname = usePathname();
 
-  const menuItems = [
-    { label: 'Main', path: '/musicfun' },
-    { label: 'Playlists', path: '/musicfun/playlists' },
-    { label: 'Tracks', path: '/musicfun/tracks' },
-    { label: 'Profile', path: '/musicfun/profile' },
-  ];
-
   return (
-    <aside className={styles.sidebar}>
-      <nav className={styles.nav}>
+    <aside className={s.sidebar}>
+      <nav className={s.nav}>
         {menuItems.map(item => (
           <Link
             key={item.path}
             href={item.path}
-            className={`${styles.link} ${pathname === item.path ? styles.active : ''}`}
+            className={`${s.link} ${pathname === item.path ? s.active : ''}`}
           >
             {item.label}
           </Link>
@@ -30,5 +27,3 @@ const Sidebar = () => {
     </aside>
   );
 };
-
-export default Sidebar;
