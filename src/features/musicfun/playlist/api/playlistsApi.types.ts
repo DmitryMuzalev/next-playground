@@ -43,3 +43,14 @@ export type FetchPlaylistsArgs = {
   userId?: string;
   trackId?: string;
 };
+
+export type CreatePlaylistArgs = {
+  title: string;
+  description: string;
+};
+
+export type UpdatePlaylistArgs = {
+  title: string;
+  description: string;
+  tagIds: string[];
+};
