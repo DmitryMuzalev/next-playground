@@ -7,6 +7,7 @@ import type {
   PlaylistsResponse,
   UpdatePlaylistArgs,
 } from './playlistsApi.types';
+import type { Images } from '@/shared/types/musicfun';
 
 export const playlistApi = musicfunBaseApi.injectEndpoints({
   endpoints: build => ({
@@ -37,6 +38,22 @@ export const playlistApi = musicfunBaseApi.injectEndpoints({
       }),
       invalidatesTags: ['Playlist'],
     }),
+    uploadPlaylistCover: build.mutation<Images, { playlistId: string; file: File }>({
+      query: ({ playlistId, file }) => {
+        const formData = new FormData();
+        formData.append('file', file);
+        return {
+          url: `playlists/${playlistId}/images/main`,
+          method: 'post',
+          body: formData,
+        };
+      },
+      invalidatesTags: ['Playlist'],
+    }),
+    deletePlaylistCover: build.mutation<void, string>({
+      query: playlistId => ({ url: `playlists/${playlistId}/images/main`, method: 'delete' }),
+      invalidatesTags: ['Playlist'],
+    }),
   }),
 });
 
@@ -45,4 +62,6 @@ export const {
   useCreatePlaylistMutation,
   useDeletePlaylistMutation,
   useUpdatePlaylistMutation,
+  useUploadPlaylistCoverMutation,
+  useDeletePlaylistCoverMutation,
 } = playlistApi;
