@@ -32,7 +32,6 @@ export type PlaylistAttributes = {
   currentUserReaction: CurrentUserReaction;
 };
 
-// Arguments
 export type FetchPlaylistsArgs = {
   pageNumber?: number;
   pageSize?: number;
