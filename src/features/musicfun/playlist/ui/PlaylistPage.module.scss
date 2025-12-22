@@ -11,29 +11,6 @@
   color: var(--text-primary);
 }
 
-.playlistsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.playlistCard {
-  cursor: pointer;
-  background-color: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  transition: all 0.2s ease;
-  box-shadow: var(--card-shadow);
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--card-shadow-hover);
-    border-color: var(--border-hover);
-  }
-}
-
 @media (width <= 768px) {
   .container {
     padding: 1.5rem 1rem;
