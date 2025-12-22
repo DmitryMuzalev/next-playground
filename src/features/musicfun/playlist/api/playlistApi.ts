@@ -12,7 +12,7 @@ import type { Images } from '@/shared/types/musicfun';
 export const playlistApi = musicfunBaseApi.injectEndpoints({
   endpoints: build => ({
     fetchPlaylists: build.query<PlaylistsResponse, FetchPlaylistsArgs>({
-      query: () => 'playlists',
+      query: params => ({ url: 'playlists', params }),
       providesTags: ['Playlist'],
     }),
     createPlaylist: build.mutation<{ data: PlaylistData }, CreatePlaylistArgs>({

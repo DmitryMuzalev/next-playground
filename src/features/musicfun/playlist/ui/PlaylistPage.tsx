@@ -8,12 +8,16 @@ import { CreatePlaylistForm } from './CreatePlaylistForm';
 import { EditPlaylistForm } from './EditPlaylistForm/EditPlaylistForm';
 import s from './PlaylistPage.module.scss';
 import { PlaylistItem } from './PlaylistItem';
+import { useDebounceValue } from '@/shared/hooks';
 
 export function PlaylistPage() {
   const [playlistId, setPlaylistId] = useState<string | null>(null);
+  const [search, setSearch] = useState('');
   const { register, handleSubmit, reset } = useForm<UpdatePlaylistArgs>();
 
-  const { data, isLoading } = useFetchPlaylistsQuery({});
+  const debouncedSearch = useDebounceValue(search);
+  const { data, isLoading } = useFetchPlaylistsQuery({ search: debouncedSearch });
+
   const [deletePlaylist] = useDeletePlaylistMutation();
 
   const deletePlaylistHandler = (playlistId: string) => {
@@ -45,7 +49,13 @@ export function PlaylistPage() {
     <div className={s.container}>
       <h2 className={s.pageTitle}>MusicFun Playlists</h2>
       <CreatePlaylistForm />
+      <input
+        type='search'
+        placeholder={'Search playlist by title'}
+        onChange={e => setSearch(e.currentTarget.value)}
+      />
       <div className={s.playlistsGrid}>
+        {playlists.length === 0 && <p>No playlists found.</p>}
         {playlists.map(playlist => {
           const isEditing = playlistId === playlist.id;
           return (
