@@ -1,5 +1,7 @@
 'use client';
 
+import { MusicFunProfilePage } from '@/features/musicfun';
+
 export default function MusicFunProfile() {
-  return <h2>MusicFun MusicFunProfile</h2>;
+  return <MusicFunProfilePage />;
 }

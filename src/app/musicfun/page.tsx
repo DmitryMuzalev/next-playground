@@ -1,5 +1,14 @@
 'use client';
 
+import { useGetMeQuery } from '@/features/musicfun';
+
 export default function MusicFun() {
-  return <h2>MusicFunPage</h2>;
+  const { data } = useGetMeQuery();
+
+  return (
+    <div>
+      <h1>Main page</h1>
+      <div>login: {data?.login} </div>
+    </div>
+  );
 }
