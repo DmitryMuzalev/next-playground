@@ -30,3 +30,11 @@ export interface CharactersResponse {
   info: Info;
   results: Character[];
 }
+
+export interface CharactersRequestArgs {
+  name?: string;
+  status?: 'Alive' | 'Dead' | 'unknown';
+  species?: string;
+  type?: string;
+  gender?: 'Female' | 'Male' | 'Genderless' | 'unknown';
+}

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { Character, CharactersResponse } from './types';
+import type { Character, CharactersRequestArgs, CharactersResponse } from './types';
 
 export const rickAndMortyApi = createApi({
   reducerPath: 'rickAndMortyApi',
@@ -8,7 +8,7 @@ export const rickAndMortyApi = createApi({
   }),
   tagTypes: ['RickAndMorty'],
   endpoints: builder => ({
-    getCharacters: builder.query<CharactersResponse, void>({
+    getCharacters: builder.query<CharactersResponse, CharactersRequestArgs>({
       query: () => 'character',
       providesTags: ['RickAndMorty'],
     }),
